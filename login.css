@@ -1,0 +1,89 @@
+.center {
+    text-align: center;
+}
+
+.body-login {
+    background-color:  #fefefe;
+    margin: auto;
+    width: 30%;
+    height: 50%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d8d8d8;
+    border-radius: 10px;
+    font-family: "Helvetica";
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 10%;
+}
+
+.body-register {
+    background-color:  #fefefe;
+    margin: auto;
+    width: 25%;
+    height: 50%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d8d8d8;
+    border-radius: 10px;
+    font-family: "Helvetica";
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 5%;
+    font-size: 14px;
+}
+
+body {
+    background: url('/ITS120L%20WEBSITE/imgs/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.button {
+    width: 90%;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #f4f4f4;
+    background-color: #2b2b2b;
+}
+
+.login {
+    text-align: left;
+    margin-left: 10%;
+}
+
+.input-login {
+    width: 80%;
+    height: 36px;
+    border-radius: 10px;
+    padding: 12px 20px;
+}
+
+.input-register {
+    width: 80%;
+    height: 24px;
+    border-radius: 10px;
+    padding: 12px 20px;
+}
+
+input::placeholder {
+    text-align: left;
+    margin-left: 15px;
+}
