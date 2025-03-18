@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -10,8 +11,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT GoalName, GoalType, StartDate, EndDate, Status FROM Goal ORDER BY StartDate DESC";
-$result = $conn->query($sql);
+$UserID = $_SESSION['UserID']; // Ensure session UserID is set
+
+// Prepare the statement before binding parameters
+$sql = "SELECT GoalName, GoalType, StartDate, EndDate, Status 
+        FROM Goal 
+        WHERE UserID = ? 
+        ORDER BY StartDate DESC";
+
+$stmt = $conn->prepare($sql);
+if ($stmt === false) {
+    die("Error preparing statement: " . $conn->error);
+}
+
+$stmt->bind_param("i", $UserID); // Bind UserID as integer
+$stmt->execute();
+
+$result = $stmt->get_result();
 
 $goals = [];
 while ($row = $result->fetch_assoc()) {
@@ -20,5 +36,6 @@ while ($row = $result->fetch_assoc()) {
 
 echo json_encode($goals);
 
+$stmt->close();
 $conn->close();
 ?>

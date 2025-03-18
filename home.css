@@ -281,11 +281,7 @@ p {
 .column3 li:first-child{
     background: url(/AI-Life-Coaching-Application/imgs/targettest.png) right bottom no-repeat, #ec4b4d;
     background-size: 60%;
-}
-
-.column3 li:last-child{
-    background: url(/AI-Life-Coaching-Application/imgs/statistics.png) right bottom no-repeat, #4b96ec;
-    background-size: 50%;
+    height: 15rem;
 }
 
 .column3 h1, .column3 h2, .column3 h3, .column3 p {
@@ -395,6 +391,7 @@ p {
     height: 16rem;
     margin-bottom: 1rem;
     margin-right: 2rem;
+    margin-bottom: 2rem;
 }
 
 .currentgoals p {
@@ -545,4 +542,10 @@ p {
     background-color: #ffffff;
     margin:auto;
     height: 1rem;
+}
+
+.goal button {
+    padding: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
 }

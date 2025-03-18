@@ -30,10 +30,10 @@ session_start();
             <input type="email" id="email" name="email" class="input-register" placeholder="Enter Email Address" required><br><br> 
 
             <label for="password"> Password </label><br><br>
-            <input type="text" id="password" name="password" class="input-register" placeholder="Enter Password" required><br><br> 
+            <input type="password" id="password" name="password" class="input-register" placeholder="Enter Password" required><br><br> 
 
             <label for="confirmpassword"> Confirm Password </label><br><br>
-            <input type="text" id="confirmpassword" name="confirmpassword" class="input-register" placeholder="Enter Password" required><br><br> 
+            <input type="password" id="confirmpassword" name="confirmpassword" class="input-register" placeholder="Enter Password" required><br><br> 
 
             <label for="contactnumber"> Contact Number </label><br><br>
             <input type="number" id="contactnumber" name="contactnumber" class="input-register" placeholder="09XXXXXXXXX" required><br><br> 
@@ -106,23 +106,23 @@ session_start();
 <?php
 require 'db_connection.php'; // Ensure this file connects to your database
 
-$sql = "SELECT * FROM goal WHERE UserID = " . $_SESSION['UserID'];
-$result = $conn->query($sql);
+// $sql = "SELECT * FROM goal WHERE UserID = " . $_SESSION['UserID'];
+// $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    echo "<ul>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<li>";
-        echo "<h1>" . htmlspecialchars($row['GoalName']) . "</h1>";
-        echo "<h2>" . htmlspecialchars($row['GoalType']) . "</h2>";
-        echo "<p>Start: " . htmlspecialchars($row['StartDate']) . " | End: " . htmlspecialchars($row['EndDate']) . "</p>";
-        echo "<p>Status: " . htmlspecialchars($row['Status']) . "</p>";
-        echo "</li>";
-    }
-    echo "</ul>";
-} else {
-    echo "<p>No goals found.</p>";
-}
+// if ($result->num_rows > 0) {
+//     echo "<ul>";
+//     while ($row = $result->fetch_assoc()) {
+//         echo "<li>";
+//         echo "<h1>" . htmlspecialchars($row['GoalName']) . "</h1>";
+//         echo "<h2>" . htmlspecialchars($row['GoalType']) . "</h2>";
+//         echo "<p>Start: " . htmlspecialchars($row['StartDate']) . " | End: " . htmlspecialchars($row['EndDate']) . "</p>";
+//         echo "<p>Status: " . htmlspecialchars($row['Status']) . "</p>";
+//         echo "</li>";
+//     }
+//     echo "</ul>";
+// } else {
+//     echo "<p>No goals found.</p>";
+// }
 
 $conn->close();
 ?>

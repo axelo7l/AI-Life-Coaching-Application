@@ -227,18 +227,6 @@ session_start();
                         Click Here
                     </a>
                 </li>
-                <li>
-                    <h1>
-                        Progress Report
-                    </h1>
-                    <h3>
-                        Track your progress
-                    </h3>
-                    <br>
-                    <a href="">
-                        Click Here
-                    </a>
-                </li>
             </ul>
         </div>
     </div>

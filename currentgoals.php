@@ -14,23 +14,26 @@ session_start();
     <title> Current Goals </title>
 </head>
 <script>
-    async function generateContent(inputprompt) {
-        const prompt = "generate short advice about " + inputprompt + ", avoid using any text styling";
-        const responseElement = document.getElementById("response");
+async function generateContent(inputprompt, button) {
+    const prompt = "generate advice about " + inputprompt + ", avoid using any text styling";
+    
+    // Get the closest <li> element
+    const listItem = button.closest("li");
+    const responseElement = listItem.querySelector(".response");
 
-        try {
-            const response = await fetch("http://localhost:5000/generate", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ prompt })
-            });
+    try {
+        const response = await fetch("http://localhost:5000/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt })
+        });
 
-            const data = await response.json();
-            responseElement.innerText = data.result || "No response from AI";
-        } catch (error) {
-            responseElement.innerText = "Error: " + error.message;
-        }
+        const data = await response.json();
+        responseElement.innerText = data.result || "No response from AI";
+    } catch (error) {
+        responseElement.innerText = "Error: " + error.message;
     }
+}
 </script>
 <body>
 <aside>
@@ -162,10 +165,16 @@ session_start();
                                 <h2>${goal.GoalType}</h2>
                                 <p>Start: ${goal.StartDate} | End: ${goal.EndDate}</p>
                                 <p>Status: ${goal.Status}</p>
-                                <p>
+                                <br>
+                                <button onclick="generateContent('${goal.GoalName}', this)">
+                                    Generate Advice
+                                </button>
                             </div>
-                        </div>
-                    </li>`;
+                            <div class="goal">
+                                <p class="response"></p> <!-- Added class to target response area -->
+                                </div>
+                            </div>
+                        </li>`;
             });
         });
     }
