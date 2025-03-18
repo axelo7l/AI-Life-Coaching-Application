@@ -26,7 +26,7 @@ CREATE TABLE Goal (
     StartDate DATE,
     EndDate DATE,
     Status VARCHAR(20),
-    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 CREATE TABLE ProgressAnalytics (
@@ -36,7 +36,7 @@ CREATE TABLE ProgressAnalytics (
     ProgressDate DATE,
     Metrics VARCHAR(255),
     ProgressPercentage DECIMAL(5,2),
-    FOREIGN KEY (UserID) REFERENCES User(UserID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (GoalID) REFERENCES Goal(GoalID)
 );
 
@@ -47,7 +47,7 @@ CREATE TABLE CoachingSession (
     AdviceProvided TEXT,
     MotivationalMessage TEXT,
     HabitTip TEXT,
-    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 CREATE TABLE CommunityPost (
@@ -57,7 +57,7 @@ CREATE TABLE CommunityPost (
     PostContent TEXT,
     CommentsCount INT,
     LikesCount INT,
-    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 CREATE TABLE WellnessFeature (
@@ -66,7 +66,7 @@ CREATE TABLE WellnessFeature (
     FeatureType VARCHAR(50),
     Data TEXT,
     DateRecorded DATE,
-    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 CREATE TABLE DisciplineRoutine (
@@ -77,7 +77,7 @@ CREATE TABLE DisciplineRoutine (
     StartDate DATE,
     EndDate DATE,
     Status VARCHAR(20),
-    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 

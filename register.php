@@ -64,7 +64,7 @@ session_start();
                         $contactnumber = $_POST['contactnumber'];
 
                         if ($password == $confirmpassword) {
-                            $checkemail = $conn->prepare("SELECT COUNT(*) FROM user WHERE Email = ?");
+                            $checkemail = $conn->prepare("SELECT COUNT(*) FROM users WHERE Email = ?");
                             $checkemail->bind_param("s", $email);
                             $checkemail->execute();
                             $checkemail->bind_result($count);
@@ -76,7 +76,7 @@ session_start();
                             } else {
                                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                                 // SQL query to insert new user into the database
-                                $sql = "INSERT INTO user (FirstName, LastName, Email, Password) VALUES ('$fname', '$lname', '$email', '$password')";
+                                $sql = "INSERT INTO users (FirstName, LastName, Email, Password) VALUES ('$fname', '$lname', '$email', '$password')";
 
                                 if ($conn->query($sql) === TRUE) {
                                     echo "Registration successful!";

@@ -18,7 +18,7 @@ session_start();
 
 
     async function generateContent(inputprompt) {
-        const prompt = "generate very short informational advice about " + inputprompt + ", avoid using and text styling";
+        const prompt = "generate short advice about " + inputprompt + ", avoid using any text styling";
         const responseElement = document.getElementById("response");
 
         try {
@@ -34,6 +34,61 @@ session_start();
             responseElement.innerText = "Error: " + error.message;
         }
     }
+    document.getElementById("goalformbutton").onclick = function() {
+        document.getElementById("goalform").style.display = "block";
+    };
+
+    document.querySelector(".close").onclick = function() {
+        document.getElementById("goalform").style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("goalform")) {
+            document.getElementById("goalform").style.display = "none";
+        }
+    };
+
+    document.getElementById("goalForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let formData = new FormData(this);
+
+        fetch("add_goal.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);  // Show success or error message
+            loadGoals();  // Refresh goal list
+            document.getElementById("goalform").style.display = "none";
+        });
+    });
+
+    function loadGoals() {
+        fetch("fetch_goal.php")
+        .then(response => response.json())
+        .then(data => {
+            let goalList = document.getElementById("goal-list");
+            goalList.innerHTML = "";
+
+            data.forEach(goal => {
+                goalList.innerHTML += `
+                    <li>
+                        <div class="row">
+                            <div class="goal">
+                                <h1>${goal.GoalName}</h1>
+                                <h2>${goal.GoalType}</h2>
+                                <p>Start: ${goal.StartDate} | End: ${goal.EndDate}</p>
+                                <p>Status: ${goal.Status}</p>
+                            </div>
+                        </div>
+                    </li>`;
+            });
+        });
+    }
+
+    window.onload = loadGoals;
 </script>
 <body>
 <aside>
@@ -83,7 +138,7 @@ session_start();
             </h1>
             <hr>
             
-            <ul>
+            <!-- <ul>
                 <li>
                     <h1>
                         (Goal Title)
@@ -117,6 +172,12 @@ session_start();
                         (Goal Description)
                     </p>
                 </li>
+            </ul> -->
+            <script>
+                loadGoals()
+            </script>
+            <ul id="goal-list">
+                <!-- Goals will be loaded dynamically -->
             </ul>
         </div>
         <div class="column2">
@@ -182,8 +243,6 @@ session_start();
         </div>
     </div>
 </main>
-</body>
-
 <style>
     .chat-box {
         position: fixed;
@@ -228,5 +287,6 @@ session_start();
         e.preventDefault();
         document.body.classList.toggle("sb-expanded");
     });
-</script>
+</script>   
+</body>
 </html>

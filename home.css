@@ -203,7 +203,7 @@ p {
     padding: 1rem 2rem;
     background-color: #ffffff;
     margin: 1rem;
-    height: 10rem;
+    height: 12rem;
 }
 
 .column1 li:hover, .column2 .advicebox:hover, .column2 .winebbox:hover, .column3 li:hover {
@@ -400,9 +400,10 @@ p {
 .currentgoals p {
     border: #000 1px solid;
     border-radius: 1.5rem;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     background-color: #ffffff;
     height: 7rem;
+    margin-bottom: 0rem;
 
 }
 
@@ -543,5 +544,5 @@ p {
     padding: 0;
     background-color: #ffffff;
     margin:auto;
-    height: 2rem;
+    height: 1rem;
 }
