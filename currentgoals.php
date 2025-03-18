@@ -13,6 +13,25 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <title> Current Goals </title>
 </head>
+<script>
+    async function generateContent(inputprompt) {
+        const prompt = "generate short advice about " + inputprompt + ", avoid using any text styling";
+        const responseElement = document.getElementById("response");
+
+        try {
+            const response = await fetch("http://localhost:5000/generate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt })
+            });
+
+            const data = await response.json();
+            responseElement.innerText = data.result || "No response from AI";
+        } catch (error) {
+            responseElement.innerText = "Error: " + error.message;
+        }
+    }
+</script>
 <body>
 <aside>
     <nav>
@@ -143,6 +162,7 @@ session_start();
                                 <h2>${goal.GoalType}</h2>
                                 <p>Start: ${goal.StartDate} | End: ${goal.EndDate}</p>
                                 <p>Status: ${goal.Status}</p>
+                                <p>
                             </div>
                         </div>
                     </li>`;
