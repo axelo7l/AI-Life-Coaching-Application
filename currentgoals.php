@@ -15,7 +15,7 @@ session_start();
 </head>
 <script>
 async function generateContent(inputprompt, button) {
-    const prompt = "generate advice about " + inputprompt + ", avoid using any text styling";
+    const prompt = "generate advice about " + inputprompt + ", avoid using any text styling and make sure it fits in one paragraph";
     
     // Get the closest <li> element
     const listItem = button.closest("li");
@@ -55,6 +55,12 @@ async function generateContent(inputprompt, button) {
                 <a href="#">
                     <i class="bx bx-cog"></i>
                     <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="/AI-Life-Coaching-Application/login.php">
+                    <i class='bx bx-log-out'></i>
+                    <span>Logout</span>
                 </a>
             </li>
         </ul>

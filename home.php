@@ -112,6 +112,12 @@ session_start();
                     <span>Settings</span>
                 </a>
             </li>
+            <li>
+                <a href="/AI-Life-Coaching-Application/login.php">
+                    <i class='bx bx-log-out'></i>
+                    <span>Logout</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </aside>

@@ -49,6 +49,10 @@ nav ul {
     flex-flow: column;
     gap: 0.25rem;
 }
+
+nav li:last-child {
+    margin-top: auto;
+}
   
 nav a {
     display: flex;
