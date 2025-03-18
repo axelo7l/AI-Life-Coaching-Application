@@ -6,7 +6,7 @@ session_start();
 <html lang="en" style="background-color: #fef7ff;">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/ITS120L%20WEBSITE/home.css" type="text/css">
+    <link rel="stylesheet" href="/AI-Life-Coaching-Application/home.css" type="text/css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@ session_start();
                 </a>
             </li>
             <li>
-                <a href="/ITS120L%20WEBSITE/home.php">
+                <a href="/AI-Life-Coaching-Application/home.php">
                     <i class="bx bx-home-circle"></i>
                     <span>Home</span>
                 </a>
@@ -90,6 +90,12 @@ session_start();
 </main>
 
 <script>
+    const resizeBtn = document.querySelector("[data-resize-btn]");
+    resizeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.toggle("sb-expanded");
+    });
+
     document.getElementById("goalformbutton").onclick = function() {
         document.getElementById("goalform").style.display = "block";
     };
@@ -122,7 +128,7 @@ session_start();
     });
 
     function loadGoals() {
-        fetch("fetch_goals.php")
+        fetch("fetch_goal.php")
         .then(response => response.json())
         .then(data => {
             let goalList = document.getElementById("goal-list");

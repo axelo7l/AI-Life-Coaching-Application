@@ -128,7 +128,7 @@ header {
     justify-content: space-between;
     padding: 2rem 3rem;
     background-color: #41c5f5; 
-    background: url(/ITS120L%20WEBSITE/imgs/earth.png) right top no-repeat, url(/ITS120L%20WEBSITE/imgs/starstest.png) right top no-repeat, #41c5f5;
+    background: url(/AI-Life-Coaching-Application/imgs/earth.png) right top no-repeat, url(/AI-Life-Coaching-Application/imgs/starstest.png) right top no-repeat, #41c5f5;
     background-size: 70%, 100%, cover;
     height: 15rem;
     border-radius: 3rem;
@@ -226,7 +226,7 @@ p {
     border-radius: 3rem;
     padding-top: 2rem;
     padding-left: 2rem;
-    background: url(/ITS120L%20WEBSITE/imgs/lightbulb_bg.png) right bottom no-repeat, #8f9195;
+    background: url(/AI-Life-Coaching-Application/imgs/lightbulb_bg.png) right bottom no-repeat, #8f9195;
     background-size: 70%;
     margin: 2%;
     height: 24rem;
@@ -237,6 +237,24 @@ p {
     padding: 1rem;
     padding-left: 5rem;
     padding-right: 5rem;
+}
+
+.column2 button {
+    cursor: pointer;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-style: solid;
+    border-color: #000;
+    border-width: 2px;
+    border-radius: 3rem;
+    background-color: #ffffff;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    color:#000;
+    font-family: "Righteous", sans-serif;
+    font-size: 1.5rem;
 }
 
 .column3 a {
@@ -261,12 +279,12 @@ p {
 }
 
 .column3 li:first-child{
-    background: url(/ITS120L%20WEBSITE/imgs/targettest.png) right bottom no-repeat, #ec4b4d;
+    background: url(/AI-Life-Coaching-Application/imgs/targettest.png) right bottom no-repeat, #ec4b4d;
     background-size: 60%;
 }
 
 .column3 li:last-child{
-    background: url(/ITS120L%20WEBSITE/imgs/statistics.png) right bottom no-repeat, #4b96ec;
+    background: url(/AI-Life-Coaching-Application/imgs/statistics.png) right bottom no-repeat, #4b96ec;
     background-size: 50%;
 }
 
@@ -519,3 +537,11 @@ p {
     cursor: pointer;
 }
 
+.currentgoals p {
+    border-radius: 0%;
+    border-style: none;
+    padding: 0;
+    background-color: #ffffff;
+    margin:auto;
+    height: 2rem;
+}

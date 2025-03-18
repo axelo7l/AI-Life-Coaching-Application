@@ -1,0 +1,27 @@
+{
+  "name": "ai-life-coaching-application",
+  "version": "1.0.0",
+  "description": "ITS120L Group Project - AI Life Coaching Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axelo7l/AI-Life-Coaching-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axelo7l/AI-Life-Coaching-Application/issues"
+  },
+  "homepage": "https://github.com/axelo7l/AI-Life-Coaching-Application#readme",
+  "dependencies": {
+    "axios": "^1.8.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^4.87.3"
+  }
+}

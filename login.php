@@ -6,7 +6,7 @@ session_start();
 <meta charset="UTF-8">
 <html lang="en">
     <head> 
-        <link rel="stylesheet" href="/ITS120L%20WEBSITE/login.css" type="text/css">
+        <link rel="stylesheet" href="/AI-Life-Coaching-Application/login.css" type="text/css">
         <title> Login </title>
     </head>
 <body>
@@ -94,7 +94,7 @@ session_start();
 </div>
 
         <div class="center">
-            <p> Not Registered? <a href='http://localhost/ITS120L%20WEBSITE/register.php/'> Sign Up Now </a> </p> 
+            <p> Not Registered? <a href='http://localhost/AI-Life-Coaching-Application/register.php/'> Sign Up Now </a> </p> 
         </div>
         
     </form>

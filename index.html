@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini AI Content Generator</title>
+</head>
+<body>
+    <h2>AI Advice Generator</h2>
+    <textarea id="prompt" placeholder="Enter your prompt here..."></textarea><br>
+    <button onclick="
+        var inputprompt = document.getElementById('prompt').value;
+        generateContent(inputprompt)
+        ">Generate</button>
+    <p id="response"></p>
+
+    <script>
+        async function generateContent(inputprompt) {
+            const prompt = "generate short informational advice about " + inputprompt;
+            const responseElement = document.getElementById("response");
+
+            try {
+                const response = await fetch("http://localhost:5000/generate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ prompt })
+                });
+
+                const data = await response.json();
+                responseElement.innerText = data.result || "No response from AI";
+            } catch (error) {
+                responseElement.innerText = "Error: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

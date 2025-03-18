@@ -6,7 +6,7 @@ session_start();
 <meta charset="UTF-8">
 <html lang="en" style="background-color: #fef7ff;">
 <head>
-    <link rel="stylesheet" href="/ITS120L%20WEBSITE/home.css" type="text/css">
+    <link rel="stylesheet" href="/AI-Life-Coaching-Application/home.css" type="text/css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,27 @@ session_start();
 
     <title> Home Page </title>
 </head>
+<script>
+
+
+    async function generateContent(inputprompt) {
+        const prompt = "generate very short informational advice about " + inputprompt + ", avoid using and text styling";
+        const responseElement = document.getElementById("response");
+
+        try {
+            const response = await fetch("http://localhost:5000/generate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt })
+            });
+
+            const data = await response.json();
+            responseElement.innerText = data.result || "No response from AI";
+        } catch (error) {
+            responseElement.innerText = "Error: " + error.message;
+        }
+    }
+</script>
 <body>
 <aside>
     <nav>
@@ -25,7 +46,7 @@ session_start();
                 </a>
             </li>
             <li>
-                <a href="/ITS120L%20WEBSITE/home.php">
+                <a href="/AI-Life-Coaching-Application/home.php">
                     <i class="bx bx-home-circle"></i>
                     <span>Home</span>
                 </a>
@@ -50,8 +71,7 @@ session_start();
             </li>
             <li>
                 <div class="quotebox">
-                    (quote)
-                </div>
+                </div>    
             </li>
         </ul>
     </header>
@@ -105,7 +125,9 @@ session_start();
                     Would you like <br> some advice?
                 </h1>
                 <br><br><br><br>
-                <a href="#" id="askMe">Ask me!</a>
+                <button onclick="
+                    document.getElementById('motivation_advice').innerHTML = generateContent('one motivational advice');
+                ">Ask me!</a>
             </div>
             
             <div id="chatBox" class="chat-box" style="display: none;">
@@ -121,14 +143,12 @@ session_start();
             </div>
 
             <div class="wineb">
-                <img src="/ITS120L%20WEBSITE/imgs/lightbulb.png" style="width: 100px; height: 100px;">
+                <img src="/AI-Life-Coaching-Application/imgs/lightbulb.png" style="width: 100px; height: 100px;">
                 <div class="winebbox">
                     <h2>
                         Wineb's Advice for Today:
                     </h2>
-                    <p>
-                        (quote)
-                    </p>
+                    <div id="response"></div>
                 </div>
             </div>
         </div>
@@ -142,7 +162,7 @@ session_start();
                         Manage your goals
                     </h3>
                     <br>
-                    <a href="/ITS120L%20WEBSITE/currentgoals.php">
+                    <a href="/AI-Life-Coaching-Application/currentgoals.php">
                         Click Here
                     </a>
                 </li>
@@ -203,12 +223,10 @@ session_start();
 </style>
 
 <script>
-    document.getElementById("askMe").addEventListener("click", function(event) {
-        event.preventDefault();
-        document.getElementById("chatBox").style.display = "block";
-    });
-    document.getElementById("closeChat").addEventListener("click", function() {
-        document.getElementById("chatBox").style.display = "none";
+    const resizeBtn = document.querySelector("[data-resize-btn]");
+    resizeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.toggle("sb-expanded");
     });
 </script>
 </html>
