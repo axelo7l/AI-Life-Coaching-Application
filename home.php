@@ -16,6 +16,8 @@ session_start();
 </head>
 <script>
 
+    if {$_SESSION["UserID"]==}
+
 
     async function generateContent(inputprompt) {
         const prompt = "generate short advice about " + inputprompt + ", avoid using any text styling";
@@ -90,6 +92,12 @@ session_start();
 
     window.onload = loadGoals;
 </script>
+<?php
+    if ($_SESSION["UserID"] == "") {
+        header("Location: login.php", true, 301);
+    }
+
+?>
 <body>
 <aside>
     <nav>
@@ -113,7 +121,7 @@ session_start();
                 </a>
             </li>
             <li>
-                <a href="/AI-Life-Coaching-Application/login.php">
+                <a href="/AI-Life-Coaching-Application/clear_session.php">
                     <i class='bx bx-log-out'></i>
                     <span>Logout</span>
                 </a>

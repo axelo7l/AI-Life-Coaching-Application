@@ -92,7 +92,9 @@ session_start();
                 ?>
             </div>
             
-            <button type="submit" class="button">Register</button> <br> <br> <br>
+            <button type="submit" class="button">Register</button> <br> <br>
+            <a href="../clear_session.php" class="button" style ="padding: 0.5rem; border-style: none; background-color: white; color: blue;"> Back to Login</a>
+            <br> <br> <br>
 
         </div>
 
@@ -105,24 +107,6 @@ session_start();
 
 <?php
 require 'db_connection.php'; // Ensure this file connects to your database
-
-// $sql = "SELECT * FROM goal WHERE UserID = " . $_SESSION['UserID'];
-// $result = $conn->query($sql);
-
-// if ($result->num_rows > 0) {
-//     echo "<ul>";
-//     while ($row = $result->fetch_assoc()) {
-//         echo "<li>";
-//         echo "<h1>" . htmlspecialchars($row['GoalName']) . "</h1>";
-//         echo "<h2>" . htmlspecialchars($row['GoalType']) . "</h2>";
-//         echo "<p>Start: " . htmlspecialchars($row['StartDate']) . " | End: " . htmlspecialchars($row['EndDate']) . "</p>";
-//         echo "<p>Status: " . htmlspecialchars($row['Status']) . "</p>";
-//         echo "</li>";
-//     }
-//     echo "</ul>";
-// } else {
-//     echo "<p>No goals found.</p>";
-// }
 
 $conn->close();
 ?>

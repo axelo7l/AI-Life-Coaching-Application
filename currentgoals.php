@@ -35,6 +35,12 @@ async function generateContent(inputprompt, button) {
     }
 }
 </script>
+<?php
+    if ($_SESSION["UserID"] == "") {
+        header("Location: login.php", true, 301);
+    }
+
+?>
 <body>
 <aside>
     <nav>
@@ -58,7 +64,7 @@ async function generateContent(inputprompt, button) {
                 </a>
             </li>
             <li>
-                <a href="/AI-Life-Coaching-Application/login.php">
+                <a href="/AI-Life-Coaching-Application/clear_session.php">
                     <i class='bx bx-log-out'></i>
                     <span>Logout</span>
                 </a>
