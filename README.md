@@ -1,111 +1,75 @@
-AI Life Coaching Application - Setup Manual
+Instructions Manual: Setting Up the Website
 
-Prerequisites
+Step 1: Download and Install XAMPP
 
-Before setting up the project, ensure you have the following installed:
+Go to https://www.apachefriends.org/download.html.
 
-XAMPP (for PHP and MySQL)
+Download the XAMPP installer for your operating system.
 
-Composer (PHP dependency manager)
+Run the installer and follow the setup instructions.
 
-Node.js (for frontend dependencies)
+Once installed, open the XAMPP Control Panel.
 
-Git (for version control)
+Start Apache and MySQL.
 
-VS Code or any IDE
+Step 2: Clone the Project to htdocs Folder
 
-1. Setting Up XAMPP and MySQL Database
+Open Command Prompt (Windows) or Terminal (Mac/Linux).
 
-Download & Install XAMPP:
+Navigate to the htdocs folder:
 
-Download from https://www.apachefriends.org/
+cd C:\xampp\htdocs  # Windows
+cd /Applications/XAMPP/htdocs  # Mac/Linux
 
-Install and run Apache & MySQL from the XAMPP Control Panel.
+Clone the GitHub repository:
 
-Create the MySQL Database:
+git clone https://github.com/axelo7l/AI-Life-Coaching-Application/
 
-Open phpMyAdmin (http://localhost/phpmyadmin)
+Rename the project folder if necessary (optional).
 
-Click New, enter its120l, and click Create.
+Step 3: Install Node.js and Dependencies
 
-Import database.sql (if provided) via Import.
+Download and install Node.js from https://nodejs.org/.
 
-2. Backend Setup (Laravel)
+Open Command Prompt/Terminal, navigate to the project folder:
 
-Navigate to the Backend Directory:
+cd C:\xampp\htdocs\AI-Life-Coaching-Application\  # Windows
+cd /Applications/XAMPP/htdocs/AI-Life-Coaching-Application/  # Mac/Linux
 
-cd path/to/backend
-
-Install Dependencies:
-
-composer install
-
-Set Up Environment Variables:
-
-Copy .env.example to .env
-
-cp .env.example .env
-
-Update .env file with:
-
-DB_DATABASE=its120l
-DB_USERNAME=root
-DB_PASSWORD=
-
-Generate Application Key & Migrate Database:
-
-php artisan key:generate
-php artisan migrate
-
-Start Laravel Server:
-
-php artisan serve
-
-The backend should now be running at http://127.0.0.1:8000
-
-3. Frontend Setup (React + Supabase)
-
-Navigate to the Frontend Directory:
-
-cd path/to/frontend
-
-Install Dependencies:
+Install required dependencies:
 
 npm install
 
-Set Up Environment Variables:
+Step 4: Run the Backend Server
 
-Create .env.local and add:
+Start the backend server:
 
-REACT_APP_SUPABASE_URL=your_supabase_url
-REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+node server.js
 
-Start React Development Server:
+If successful, you should see:
 
-npm start
+Server running on port 5000
 
-The frontend should now be running at http://localhost:3000
+Step 5: Configure the Database
 
-4. Connecting Frontend & Backend
+Open phpMyAdmin in your browser:
 
-Update Frontend API Base URL in src/config.js:
+http://localhost/phpmyadmin
 
-export const API_BASE_URL = "http://127.0.0.1:8000/api";
+Create a new database (e.g., ITS120L).
 
-Ensure CORS is configured in Laravel (app/Http/Middleware/Cors.php):
+Import the database schema (if provided):
 
-return $next($request)
-    ->header('Access-Control-Allow-Origin', '*')
-    ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-    ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+Click on the database.
 
-5. Running the Application
+Go to Import and upload the .sql file.
 
-Start XAMPP (Apache & MySQL)
+Step 6: Open the Website in Localhost
 
-Start Laravel Backend: php artisan serve
+Open a web browser.
 
-Start React Frontend: npm start
+Enter the following URL:
 
-Open http://localhost:3000 in your browser.
+http://localhost/AI-Life-Coaching-Application/home.php
 
+The website should now be running!

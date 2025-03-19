@@ -130,10 +130,10 @@ session_start();
                     Welcome back, <?php echo $_SESSION["FirstName"]; ?>!
                 </h1>
             </li>
-            <li>
+            <!-- <li>
                 <div class="quotebox">
                 </div>    
-            </li>
+            </li> -->
         </ul>
     </header>
 
